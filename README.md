@@ -1,2 +1,33 @@
-# paseo-session-insights
-Customizable, source-aware session metrics for Paseo (planned).
+# Paseo Session Insights
+
+> 状态：规划中。当前仓库还不是可安装插件，也不会读取会话或调用模型。
+
+为 [Paseo](https://github.com/getpaseo/paseo) 的当前会话展示可核对的模型、状态、速度和用量；用户可以选择显示项目和顺序。
+
+## 计划功能
+
+- 在输入区附近展示当前会话的来源、模型、运行状态、输入／输出和可用的上下文数据。
+- 提供可自定义的状态条与详情；实际位置以 Paseo 可维护的扩展能力为准。
+- 区分单次请求、整个回合和来源生成环节的平均速度，标明来源与更新时间。
+- 未报告、未匹配和过期的数据如实显示，不把未知当成零，也不把共享账户额度当成会话费用。
+
+## 已有项目与复用
+
+- [Codex Pulse](https://github.com/Mr-Elk/codex-pulse)：参考已完成请求的速度计算及会话身份核对；该规则不能直接套到其他来源。
+- [TokenLedger](https://github.com/stv1024/token-ledger)：参考会话事件、每轮用量和数据质量处理；不同来源的统计范围需要各自核实。
+- [Turn Speed](https://github.com/Drenalol/paseo-turn-speed)：参考输入区展示与详情；字符估算不当作精确 Token。
+- [ccstatusline for Paseo](https://github.com/Laobei2012/paseo-ccstatusline)：参考自定义状态行；登记版本的宿主要求与 Paseo 0.15.0 不同。
+
+## 工作拆解
+
+- [ ] 确认会话和回合身份，订阅官方事件并区分缺失、旧值和真实零值。
+- [ ] 为每个来源核对用量、缓存和时间范围；只在计数与时间匹配时计算速度。
+- [ ] 做可选择、排序和恢复默认的状态项，以及按需查看的详情。
+- [ ] 核对输入框下方是否有公开扩展位；没有时明确限制，不宣称已实现目标位置。
+- [ ] 验证会话切换、失败、取消、恢复和实际来源，再说明可用范围。
+
+本项目不接管模型调用、账户登录或任务数据库。实际采用第三方源码时，会保留相应版权和许可证声明。
+
+## License
+
+本仓库采用 [MIT License](LICENSE)。
